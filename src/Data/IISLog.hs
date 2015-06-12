@@ -1,4 +1,3 @@
--- {-# LANGUAGE #-}
 {-# LANGUAGE RecordWildCards #-}
 module Data.IISLog (
   Log (..)
