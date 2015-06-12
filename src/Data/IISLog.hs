@@ -1,3 +1,4 @@
+-- {-# LANGUAGE #-}
 {-# LANGUAGE RecordWildCards #-}
 module Data.IISLog (
   Log (..)
@@ -25,23 +26,23 @@ k_COMMENT_PREFIX = "#"
 isHeader :: String -> Bool
 isHeader = isPrefixOf k_HEADER_PREFIX
 
-data Log = Log { date           :: Maybe Day
-               , time           :: Maybe TimeOfDay
-               , sip            :: Maybe IP
-               , method         :: Maybe StdMethod
-               , uristem        :: Maybe String
-               , uriquery       :: Maybe String
-               , sport          :: Maybe Int
-               , username       :: Maybe String
-               , cip            :: Maybe IP
-               , useragent      :: Maybe String
-               , referer        :: Maybe String
-               , status         :: Maybe Int
-               , substatus      :: Maybe Int
-               , win32status    :: Maybe Int
-               , cbytes         :: Maybe Int
-               , sbytes         :: Maybe Int
-               , timetaken      :: Maybe Int -- milliseconds
+data Log = Log { date           :: !(Maybe Day      ) 
+               , time           :: !(Maybe TimeOfDay) 
+               , sip            :: !(Maybe IP       ) 
+               , method         :: !(Maybe StdMethod) 
+               , uristem        :: !(Maybe String   ) 
+               , uriquery       :: !(Maybe String   ) 
+               , sport          :: !(Maybe Int      ) 
+               , username       :: !(Maybe String   ) 
+               , cip            :: !(Maybe IP       ) 
+               , useragent      :: !(Maybe String   ) 
+               , referer        :: !(Maybe String   ) 
+               , status         :: !(Maybe Int      ) 
+               , substatus      :: !(Maybe Int      ) 
+               , win32status    :: !(Maybe Int      ) 
+               , cbytes         :: !(Maybe Int      ) 
+               , sbytes         :: !(Maybe Int      ) 
+               , timetaken      :: !(Maybe Int      ) -- milliseconds
                } deriving (Eq, Show)
 
 utctime :: Log -> Maybe UTCTime
